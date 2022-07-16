@@ -1,0 +1,16 @@
+pip intall cx_oracle
+pip intall django-rest-framework
+pip install pillow
+pip install django-admin-interface
+pip install django-crispy-forms
+pip install humanize
+npm install sweetalert2
+npm install medium-zoom
+-----------------------------------------------------------------
+ --database : ORACLE 18 C
+CREATE USER c##prueba IDENTIFIED BY prueba
+DEFAULT TABLESPACE "USERS"
+TEMPORARY TABLESPACE "TEMP"
+QUOTA UNLIMITED ON USERS;
+
+GRANT CONNECT, RESOURCE TO c##prueba;

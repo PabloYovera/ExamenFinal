@@ -1,0 +1,35 @@
+{% extends 'Tienda/base.html' %}
+
+{% block contenido %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static '/Tienda/css/estiloos.css'%}">
+{% load humanize %}
+<h2 class="titulos text-center font-weight-bold ">Fundaciones y refugios </h2>
+<br>
+<br>
+
+<div class="productos bg-white ">
+    {% for p in fundaciones %}
+    <div class="producto  m-5 ">
+        <div class="cord">
+        <h2 class="titulos">{{p.nombre_refugio | title}}</h2>
+        {% if p.imagen_refugio%}
+        <img src="{{p.imagen.url}}" height="300px" width="300px" alt="">
+        {% endif %}
+        <div>
+            <h5 class="titulos">{{p.descripcion_refugio | capfirst}}</h5>
+            <h6 class="titulos">Cuenta{{ p.cuenta_refugio | capfirst }}</h6>
+            <h4>RUT:{{p.rut_refugio |capfirst}}</h4>
+            <button class="btn btn-primary" type="submit">Agregar a carrito</button>
+        </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+<br>
+<br>
+
+
+{% endblock %}

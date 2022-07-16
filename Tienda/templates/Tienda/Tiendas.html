@@ -1,0 +1,37 @@
+{% extends 'Tienda/base.html' %}
+
+{% block contenido %}
+{% load static %}
+
+<link rel="stylesheet" href="{% static '/Tienda/css/estiloos.css'%}">
+{% load humanize %}
+<h2 class="titulos text-center font-weight-bold ">Productos</h2>
+<br>
+<br>
+
+<div class="productos bg-white ">
+    {% for producto in productos %}
+    <div class="producto  m-5 ">
+        <div class="cord">
+        <h2 class="titulos">{{producto.nombre | title}}</h2>
+        {% if producto.imagen%}
+        <img src="{{producto.imagen.url}}" height="300px" width="300px" alt="">
+        {% endif %}
+        <div>
+            <h5 class="titulos">{{producto.marca | capfirst}}</h5>
+            <h6 class="titulos">{{ producto.descripcion | capfirst }}</h6>
+            <h4>${{producto.precio |intcomma}}</h4>
+            <button class="btn btn-primary" type="submit">Agregar a carrito</button>
+        </div>
+        </div>
+    </div>
+    
+    {% endfor %}
+</div>
+<br>
+<br>
+
+
+
+{% endblock %}
+
